@@ -43,9 +43,11 @@ def reverse_stack():
     while len(stack) > 0:
         temp.append(stack.pop())
 
+    while len(temp) > 0:
+        stack.append(temp.pop(0))
+
     print("Stack reversed successfully")
-    for i in range(len(temp)-1,-1,-1):
-        print(temp[i])
+    display()
 
 while True:
     print("\n--- STACK MENU ---")
@@ -73,3 +75,5 @@ while True:
         break
     else:
         print("Invalid choice")
+
+
