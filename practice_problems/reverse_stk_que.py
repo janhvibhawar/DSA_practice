@@ -70,7 +70,7 @@ class Queue:
 
     def printQueue(self):
         temp = self.front
-        print("Queue elements...")
+        pr-int("Queue elements...")
         while temp:
             print(temp.data, end=" ")
             temp = temp.next
