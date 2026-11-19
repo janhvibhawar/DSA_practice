@@ -26,6 +26,25 @@ class BinarySearchTree:
                 elif new_node.data >=temp.data:            #for right subtree
                     if temp.right is None:
                         temp.right = new_node
+                        return
                     else:
                         temp = temp.right
 
+    def inorder(self,temp):  #recursive method
+        if temp is None:
+            return
+        else:
+            self.inorder(temp.left)  
+            print(temp.data,end=" ")
+            self.inorder(temp.right)
+
+
+BST = BinarySearchTree()
+BST.insert(Node(10))
+BST.insert(Node(5))
+BST.insert(Node(2))
+BST.insert(Node(25))
+BST.insert(Node(13))
+BST.insert(Node(40))
+
+BST.inorder(BST.root)
