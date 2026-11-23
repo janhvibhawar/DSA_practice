@@ -40,6 +40,22 @@ class BinarySearchTree:
             self.cnt+=1
             self.inorder(temp.right)
 
+    def preorder(self,temp):  #recursive method
+        if temp is None:
+            return
+        else:
+            print(temp.data,end=" ")
+            self.preorder(temp.left)  
+            self.preorder(temp.right)
+
+    def postorder(self,temp):  #recursive method
+        if temp is None:
+            return
+        else:
+            self.postorder(temp.left)  
+            self.postorder(temp.right)
+            print(temp.data,end=" ")
+
 
 BST = BinarySearchTree()
 BST.insert(Node(10))
