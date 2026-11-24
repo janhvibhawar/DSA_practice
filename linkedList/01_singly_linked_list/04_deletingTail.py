@@ -19,16 +19,16 @@ class SinglyLinkedList:
             new_node.next = None
 
     def deleteTail(self):
-        if self.head is None:
+        if self.head is None:   #if linked list is empty
             print("List is empty")
             return
 
-        if self.head.next is None:
+        if self.head.next is None:  #if linked list contains only one node
             self.head = None
             return
 
         temp = self.head
-        while temp.next.next is not None:
+        while temp.next.next is not None:  # for more than one nodes
             temp = temp.next
         temp.next = None
 
