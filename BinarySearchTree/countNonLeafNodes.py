@@ -41,39 +41,37 @@ class BinarySearchTree:
                 self.lcnt+=1
             self.inorder(temp.right)
 
-    def preorder(self,temp):  #recursive method
+    def preorder(self, temp):
         if temp is None:
             return
         else:
-            print(temp.data,end=" ")
-            self.preorder(temp.left)  
+            print(temp.data, end=" ")
+            self.preorder(temp.left)
             self.preorder(temp.right)
 
-    def postorder(self,temp):  #recursive method
+    def postorder(self, temp):
         if temp is None:
             return
         else:
-            self.postorder(temp.left)  
+            self.postorder(temp.left)
             self.postorder(temp.right)
-            print(temp.data,end=" ")
+            print(temp.data, end=" ")
 
-
-BST = BinarySearchTree()
+BST=BinarySearchTree()
+BST.insert(Node(100))
 BST.insert(Node(10))
-BST.insert(Node(5))
-BST.insert(Node(2))
-BST.insert(Node(25))
-BST.insert(Node(13))
-BST.insert(Node(40))
+BST.insert(Node(450))
+BST.insert(Node(0))
+BST.insert(Node(65))
+BST.insert(Node(300))
 
-print("Inorder Traversal:")
+print("\nInorder: ")
 BST.inorder(BST.root)
 
 print("\nTotal non leaf nodes:", BST.lcnt)
 
-
-print("\nPreorder Traversal:")
+print("\nPreorder: ")
 BST.preorder(BST.root)
 
-print("\nPostorder Traversal:")
+print("\nPostorder: ")
 BST.postorder(BST.root)
