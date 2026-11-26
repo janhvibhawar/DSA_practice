@@ -44,27 +44,37 @@ class BinarySearchTree:
             return
         arr=[]
         cnt=0 #for counting visited node
+        level = 0
         arr.append(rt)
         while cnt < len(arr):
-            temp=arr[cnt]
-            cnt+=1
-            print(temp.data, end=" ")
-            if temp.left:
-                arr.append(temp.left)
-            if temp.right:
-                arr.append(temp.right)
+            node_count=len(arr)-cnt  #Number of nodes to be visited 
+            print("\nLevel", level, "nodes:", end= " ")
+            for i in range(node_count):
+                temp=arr[cnt]
+                cnt+=1
+                print(temp.data, end=" ")
+                if temp.left:
+                    arr.append(temp.left)
+                if temp.right:
+                    arr.append(temp.right)
+            level+=1
+        print("\nHeight of the tree: ", level-1)
             
 
 BST=BinarySearchTree()
 BST.insert(Node(100))
 BST.insert(Node(10))
 BST.insert(Node(450))
-BST.insert(Node(0))
+BST.insert(Node(4))
 BST.insert(Node(65))
 BST.insert(Node(300))
+BST.insert(Node(500))
+BST.insert(Node(50))
+BST.insert(Node(740))
+BST.insert(Node(70))
 
 print("\nInorder: ")
 BST.inorder(BST.root)
 
-print("\nLevel Order:")
+print("\nLevel Order Traversal:")
 BST.level_order(BST.root)
