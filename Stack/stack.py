@@ -1,79 +1,45 @@
-stack = []
+#stack using linked list
+class Node:
+    def __init__(self, value):
+        self.data=value
+        self.next=None
+class stack:
+    def __init__(self):
+        self.top=None
+    def isempty(self):
+        return self.top is None
+    def push(self, new_node):
+        new_node.next=self.top
+        self.top=new_node  
+    def pop(self):
+        if self.isempty():
+            print("Stack is empty")
+        else:
+            temp=self.top
+            print("Poped element: ",temp.data)  
+            self.top=self.top.next
+            temp=None
+    def reverse(self):
+        temp=self.top
+        while temp:
+            st1.push(Node(temp.data))
+            temp=temp.next
 
-def push():
-    element = input("Enter element to push: ")
-    stack.append(element)
-    print(element, "pushed into stack")
-
-def pop():
-    if len(stack) == 0:
-        print("Stack Underflow")
-    else:
-        print("Popped element:", stack.pop())
-
-def display():
-    if len(stack) == 0:
-        print("Stack is empty")
-    else:
-        print("Stack elements (Top to Bottom):")
-        for i in range(len(stack)-1, -1, -1):
-            print(stack[i])
-
-def reverse_string():
-    string = input("Enter a string: ")
-    temp = []
-
-    for ch in string:
-        temp.append(ch)
-
-    reversed_string = ""
-
-    while len(temp) > 0:
-        reversed_string += temp.pop()
-
-    print("Reversed string:", reversed_string)
-
-def reverse_stack():
-    if len(stack) == 0:
-        print("Stack is empty")
-        return
-
-    temp = []
-
-    while len(stack) > 0:
-        temp.append(stack.pop())
-
-    while len(temp) > 0:
-        stack.append(temp.pop(0))
-
-    print("Stack reversed successfully")
-    display()
-
-while True:
-    print("\n--- STACK MENU ---")
-    print("1. Push")
-    print("2. Pop")
-    print("3. Display")
-    print("4. Reverse String using Stack")
-    print("5. Reverse Stack using another Stack")
-    print("6. Exit")
-
-    choice = int(input("Enter your choice: "))
-
-    if choice == 1:
-        push()
-    elif choice == 2:
-        pop()
-    elif choice == 3:
-        display()
-    elif choice == 4:
-        reverse_string()
-    elif choice == 5:
-        reverse_stack()
-    elif choice == 6:
-        print("Exiting...")
-        break
-    else:
-        print("Invalid choice")
-
-
+    def print(self):
+        temp=self.top
+        print("Stack elements...")
+        while temp:
+            print(temp.data)
+            temp=temp.next
+st=stack()
+st1=stack()
+st.push(Node(10))
+st.push(Node(100))
+st.push(Node(45))
+st.push(Node(78))
+st.push(Node(90))
+st.print()
+st.pop()
+st.print()
+st.reverse()
+st1.print()
